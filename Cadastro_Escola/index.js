@@ -5,7 +5,7 @@ app.use(express.json())
 const escola = {};
 contador = 0;
 
-
+// get get
 app.get('/escola', (req, res) => {
     res.send(escola);
   });

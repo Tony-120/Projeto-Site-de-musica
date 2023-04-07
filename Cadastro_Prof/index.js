@@ -6,7 +6,7 @@ const ProfessorEscola = {};
 const ProfesorId = {};
 contador = 0;
 
-
+// para um porfesor se cadastrar em uma escola , mudar o uuidv4 pro nimero ibnterios sera o RA
   app.post('/escola/:id/professor',  (req, res) => {
     const idObs = uuidv4();
     const {cpf, nome, endereco, cep, telefone, email, especializacao } = req.body;
