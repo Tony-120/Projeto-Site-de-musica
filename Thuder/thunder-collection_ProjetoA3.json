@@ -1,0 +1,90 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ProjetoA3",
+    "dateExported": "2023-04-07T02:29:21.541Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "4e2548a2-9601-4fd6-a433-84a0cca63077",
+            "name": "Escola",
+            "containerId": "",
+            "created": "2023-04-07T02:00:19.945Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "cf9537df-4212-45f8-b9b4-9b74f88d7817",
+            "name": "Professor",
+            "containerId": "",
+            "created": "2023-04-07T02:00:47.965Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "c1fbf5e5-c060-4311-bd66-679674110280",
+            "colId": "3fddb76e-e054-4808-9a28-68f8f76cfe87",
+            "containerId": "4e2548a2-9601-4fd6-a433-84a0cca63077",
+            "name": "Cadastrar Escola",
+            "url": "localhost:10000/escola",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-04-07T01:05:38.420Z",
+            "modified": "2023-04-07T02:03:26.384Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"cnpj\":\"{{#string}}\",\n    \"razaosocial\": \"{{#string}}\",\n    \"endereco\":\"{{#string}}\",\n    \"cep\": \"{{#string}}\",\n    \"telefone\": \"{{#string}}\",\n    \"email\": \"{{#string}}\",\n    \"especializacao\": \"{{#string}}\"\n   \n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "799f8f9e-37de-46b8-b560-5dd75356d3b2",
+            "colId": "3fddb76e-e054-4808-9a28-68f8f76cfe87",
+            "containerId": "cf9537df-4212-45f8-b9b4-9b74f88d7817",
+            "name": "Cadastro_Prof",
+            "url": "localhost:4000/escola/2/professor",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-04-07T02:01:10.734Z",
+            "modified": "2023-04-07T02:25:51.650Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"cpf\":\"{{#string}}\",\n    \"nome\": \"{{#string}}\",\n    \"endereco\":\"{{#string}}\",\n    \"cep\": \"{{#string}}\",\n    \"telefone\": \"{{#string}}\",\n    \"email\": \"{{#string}}\",\n    \"especializacao\": \"{{#string}}\"\n   \n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "80716356-d5b3-4f12-acf5-40ae878cfe8f",
+            "colId": "3fddb76e-e054-4808-9a28-68f8f76cfe87",
+            "containerId": "4e2548a2-9601-4fd6-a433-84a0cca63077",
+            "name": "consulta_escola",
+            "url": "localhost:10000/escola",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-04-07T02:02:07.056Z",
+            "modified": "2023-04-07T02:03:17.974Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b4393221-f741-462e-95a7-dd2cfe640906",
+            "colId": "3fddb76e-e054-4808-9a28-68f8f76cfe87",
+            "containerId": "cf9537df-4212-45f8-b9b4-9b74f88d7817",
+            "name": "consulta Prof",
+            "url": "localhost:4000/escola/2/professor",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-04-07T02:05:06.148Z",
+            "modified": "2023-04-07T02:29:02.718Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
