@@ -9,7 +9,6 @@ contador = 0;
   app.post('/escola/:id/professor',  (req, res) => {
     const idObs = uuidv4();
     const {cpf, nome, endereco, cep, telefone, email, especializacao } = req.body;
-    //req.params dá acesso à lista de parâmetros da URL
     const ProfessorEscola =
       ProfesorId[req.params.id] || [];
       ProfessorEscola.push({ id: idObs, cpf, nome, endereco, cep, telefone, email, especializacao });

@@ -6,10 +6,10 @@ const AlunoId = {};
 const Especializacao={};
 contador = 0;
 
-  app.post('/professor/especializacao/aluno',  (req, res) => {
+  app.post('/professor/especializacao/aluno', (req, res) => {
     const idObs = uuidv4();
     const {cpf, nome, endereco, cep, telefone, email, especializacao } = req.body;
-    //req.params dá acesso à lista de parâmetros da URL
+    
     const Especializacao =
       AlunoId[req.params.id] || [];
       Especializacao.push({ especializacao: idObs, cpf, nome, endereco, cep, telefone, email, especializacao });
@@ -26,5 +26,5 @@ app.get('/professor/especializacao/aluno', (req, res) => {
 
 
   app.listen(6000, () => {
-    console.log('Cadastro Professor. Porta 4000');
+    console.log('Cadastro Aluno. Porta 6000');
   });
