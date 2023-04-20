@@ -23,6 +23,6 @@ app.post('/escola', (req, res) => {
   });
 
   app.listen(10000, () => {
-    console.log('Cadastro Escola. Porta 4000');
+    console.log('Cadastro Escola. Porta 10000');
   });
 
