@@ -9,12 +9,13 @@ contador = 0;
   app.post('/escola/:id/professor',  (req, res) => {
     const idObs = uuidv4();
     const {cpf, nome, endereco, cep, telefone, email, especializacao } = req.body;
+
     const ProfessorEscola =
       ProfesorId[req.params.id] || [];
       ProfessorEscola.push({ id: idObs, cpf, nome, endereco, cep, telefone, email, especializacao });
       ProfesorId[req.params.id] =
       ProfessorEscola;
-  
+
     res.status(201).send(ProfessorEscola);
   });
 
