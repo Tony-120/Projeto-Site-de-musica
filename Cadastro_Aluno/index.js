@@ -24,7 +24,6 @@ app.get('/professor/:id/aluno', (req, res) => {
     res.send(AlunoId[req.params.id] || []);
 });
 
-
   app.listen(7000, () => {
     console.log('Cadastro Aluno. Porta 7000');
   });
