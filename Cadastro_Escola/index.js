@@ -9,18 +9,35 @@ app.get('/escola', (req, res) => {
     res.send(escola);
   });
 
-app.post('/escola', (req, res) => {
+// app.post('/escola', (req, res) => {
 
+//     contador++;
+//     const { cnpj, razaosocial, endereco, cep, telefone, email, especializacao } = req.body;
+
+//     escola[contador] = {
+//       contador, cnpj, razaosocial, endereco, cep, telefone, email, especializacao
+//     }
+//     res.status(201).send(escola[contador]);
+
+
+//   });
+
+  app.post('/escola', async (req, res) => {
     contador++;
     const { cnpj, razaosocial, endereco, cep, telefone, email, especializacao } = req.body;
-
     escola[contador] = {
       contador, cnpj, razaosocial, endereco, cep, telefone, email, especializacao
     }
-    res.status(201).send(escola[contador]);
-
-
+    await axios.post('http://localhost:10000/eventos', {
+      tipo: 'LembreteCriado',
+      dados:{
+        contador, texto
+      }
+    })
+    res.status(201).send(lembretes[contador]);
   });
+
+
 
   app.listen(10000, () => {
     console.log('Cadastro Escola. Porta 10000');
