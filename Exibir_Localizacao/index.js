@@ -5,23 +5,6 @@ app.use(express.json())
 
 const ExibirCep = {}
 
-const funcoes = {
-  EscolaCastrada: (escola) => {
-    ExibirCep[escola.contador] = escola
-  },
-}
-
-
-app.get('/escola', (req, res) => {
-  res.status(200).send(ExibirCep)  
-})
-
-
-
-app.listen(5000, () => {
-    console.log('Consulta Escola. Porta 5000 ');
-  });
-
   //api do maps
 navigator.geolocation.getCurrentPosition(function(position) {
   const lat = position.coords.latitude;
@@ -52,4 +35,21 @@ navigator.geolocation.getCurrentPosition(function(position) {
 }, function(error) {
   console.error('Erro ao obter a localização do usuário:', error);
 });
+
+const funcoes = {
+  EscolaCastrada: (escola) => {
+    ExibirCep[escola.contador] = escola
+  },
+}
+
+
+app.get('/escola', (req, res) => {
+  res.status(200).send(ExibirCep)  
+})
+
+
+
+app.listen(5000, () => {
+    console.log('Consulta Escola. Porta 5000 ');
+  });
 
