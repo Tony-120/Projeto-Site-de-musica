@@ -1,2 +1,3 @@
-# todos os arquivos que tenham .class como sufixo
+
 *.class
+node_modules

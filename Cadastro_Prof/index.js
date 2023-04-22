@@ -25,8 +25,8 @@ app.get('/escola/:id/professor', (req, res) => {
 });
 
 
-  app.listen(4000, () => {
-    console.log('Cadastro Professor. Porta 4000');
+  app.listen(6000, () => {
+    console.log('Cadastro Professor. Porta 6000');
   });
 
   

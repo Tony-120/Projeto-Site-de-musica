@@ -25,7 +25,7 @@ app.get('/escola', (req, res) => {
   });
 
 
-  app.listen(10000, () => {
-    console.log('Cadastro Escola. Porta 10000');
+  app.listen(5000, () => {
+    console.log('Cadastro Escola. Porta 5000');
     
   })
