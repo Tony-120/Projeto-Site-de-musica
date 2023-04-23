@@ -10,7 +10,6 @@ app.get('/escola', (req, res) => {
     res.send(escola);
   });
 
-
   app.post('/escola', async (req, res) => {
     contador++;
     const { cnpj, razaosocial, endereco, cep, telefone, email, especializacao } = req.body;
@@ -25,6 +24,12 @@ app.get('/escola', (req, res) => {
     })
     res.status(201).send(escola[contador]);
   });
+
+  app.post('/eventos', (req, res) => {
+    console.log(req.body)
+    res.status(200).send({msg: 'ok'})
+  })
+
 
   app.listen(5000, () => {
     console.log('Cadastro Escola. Porta 5000');

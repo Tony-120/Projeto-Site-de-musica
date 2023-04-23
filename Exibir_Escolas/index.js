@@ -10,9 +10,9 @@ const funcoes = {
     ExibirDados[escola.contador] = escola
   },
   ProfessorCriado: (professor) => {
-    const profesorC = ExibirDados[professor.escolaId]['Professores'] || []
+    const profesorC = ExibirDados[professor.escolaId]['profesorC'] || []
     profesorC.push(professor)
-    ExibirDados[observacao.escolaId]['Professores'] = profesorC
+    ExibirDados[observacao.escolaId]['profesorC'] = profesorC
   },
 
 }
@@ -23,7 +23,7 @@ app.get('/escola', (req, res) => {
 
 app.post('/eventos', (req, res) => {
   try{
-    funcoes[req.body.tipo](req.body.dados)
+    funcoes[req.body.tipo](req.body.dados);
   }
   catch(err){}
   res.status(200).send(ExibirDados)

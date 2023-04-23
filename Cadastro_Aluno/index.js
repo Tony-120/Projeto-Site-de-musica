@@ -16,7 +16,7 @@ contador = 0;
   });
 
 
-  app.get('/escola', (req, res) => {
+  app.get('/aluno', (req, res) => {
     res.send(aluno);
   });
 
