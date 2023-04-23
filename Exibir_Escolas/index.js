@@ -10,9 +10,9 @@ const funcoes = {
     ExibirDados[escola.contador] = escola
   },
   ProfessorCriado: (professor) => {
-    const profesorC = ExibirDados[professor.escolaId]['profesorC'] || []
+    const profesorC = ExibirDados[professor.escolaId]['PROFESSOR CADASTRADO'] || []
     profesorC.push(professor)
-    ExibirDados[observacao.escolaId]['profesorC'] = profesorC
+    ExibirDados[professor.escolaId]['PROFESSOR CADASTRADO'] = profesorC
   },
 
 }
