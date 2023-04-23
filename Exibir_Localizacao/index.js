@@ -36,11 +36,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
   console.error('Erro ao obter a localização do usuário:', error);
 });
 
-const funcoes = {
-  EscolaCastrada: (escola) => {
-    ExibirCep[escola.contador] = escola
-  },
-}
+
 
 
 app.get('/escola', (req, res) => {

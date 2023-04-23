@@ -9,18 +9,13 @@ app.get('/escola', (req, res) => {
     res.send(escola);
   });
 
-  app.post('/escola', async (req, res) => {
+  app.post('/escola',  (req, res) => {
     contador++;
     const { cnpj, razaosocial, endereco, cep, telefone, email, especializacao } = req.body;
     escola[contador] = {
       contador, cnpj, razaosocial, endereco, cep, telefone, email, especializacao
     }
-    await axios.post('http://localhost:10000/eventos', {
-      tipo: 'EscolaCadastrada',
-      dados:{
-        contador, cnpj, razaosocial, endereco, cep, telefone, email, especializacao
-      }
-    })
+ 
     res.status(201).send(escola[contador]);
   });
 
