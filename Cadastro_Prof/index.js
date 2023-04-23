@@ -5,8 +5,9 @@ app.use(express.json())
 const ProfessorEscola = {};
 const ProfesorId = {};
 contador = 0;
+ 
 
-  app.post('/escola/:id/professor',  (req, res) => {
+  app.post('/escola/:id/professor', async  (req, res) => {
     const idObs = uuidv4();
     const {cpf, nome, endereco, cep, telefone, email, especializacao } = req.body;
 
@@ -15,7 +16,12 @@ contador = 0;
       ProfessorEscola.push({ id: idObs, cpf, nome, endereco, cep, telefone, email, especializacao });
       ProfesorId[req.params.id] =
       ProfessorEscola;
-
+      await axios.post('http://localhost:10000/eventos', {
+      tipo: 'ProfessorCriada',
+      dados: {
+        id: idObs, cpf, nome, endereco, cep, telefone, email, especializacao,
+      }
+      })
     res.status(201).send(ProfessorEscola);
   });
 
