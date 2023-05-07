@@ -1,50 +1,45 @@
 import React, { useState } from "react"
+import axios from 'axios';
 
 import "./Cadastro.css"
 
 const Cadastro = () => {
+  const [nome, setNome] = useState("")
+  const [cpf, setCPF] = useState("")
+  const [endereco, setEndereco] = useState("")
+  const [cep, setCEP] = useState("")
+  const [telefone, setTelefone] = useState("")
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
+  const [data, setData] = useState("")
 
-  const [formData,setformData] = useState ({
-    nome: '',
-    cpf: '',
-    endereco: '',
-    cep: '',
-    telefone: '',
-    email: '',
-    senha: '',
-    data: ''
-  })
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  const handleFormEdit = (event, nome) => {
-    setformData({...formData,[nome]: event.target.value
-    
+    axios.post('http://localhost:5000/aluno', {
+      nome,
+      cpf,
+      endereco,
+      cep,
+      telefone,
+      email,
+      senha,
+      data
     })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 
   }
 
-  const handleForm= async(event)=>{
-    try {
-      event.preventDefault()
-      const response = await fetch(`/aluno`,
-      {
-
-        method: 'POST',
-        body: JSON.stringify(formData)
-      
-      })
-
-      const json = await response.json()
-      console.log(response.status)
-      console.log(json)
-      
-    }catch (err) {
-    console.log(formData)}
-    
-
-  }
 
   return (
     <>
+    <form
+        onSubmit={handleSubmit}>
     <section className='hero'>
     <div class="grid-container">   
       
@@ -55,44 +50,33 @@ const Cadastro = () => {
       </div>
       
         <div class="parte1">          
-          <input class="input-home" type="text" placeholder=" Nome" required value={formData.nome} onChange={(e)=>{handleFormEdit(e,'nome')}}></input>
+          <input class="input-home" type="text" placeholder=" Nome" value={nome} onChange={e => setNome(e.target.value)}></input>
 
-          <input class="input-home" type="text" placeholder=" CPF" required value={formData.cpf}></input>
+          <input class="input-home" type="text" placeholder=" CPF" value={cpf} onChange={e => setCPF(e.target.value)}></input>
 
-          <input class="input-home" type="text" placeholder=" Endereço" required value={formData.endereco}></input>
+          <input class="input-home" type="text" placeholder=" Endereço" value={endereco} onChange={e => setEndereco(e.target.value)}></input>
 
-          <input class="input-home" type="text" placeholder=" CEP" required value={formData.cep}></input>
+          <input class="input-home" type="text" placeholder=" CEP" value={cep} onChange={e => setCEP(e.target.value)}></input>
           
-          <input class="input-home" type="tel" placeholder="Telefone: " required value={formData.telefone}></input>
+          <input class="input-home" type="tel" placeholder="Telefone" value={telefone} onChange={e => setTelefone(e.target.value)}></input>
 
-          <input class="input-home" type="email" placeholder=" Email" required value={formData.email}></input>
+          <input class="input-home" type="email" placeholder=" Email" value={email} onChange={e => setEmail(e.target.value)}></input>
 
-          <input class="input-home" type="password" placeholder="Senha:" required value={formData.senha}></input>
+          <input class="input-home" type="password" placeholder="Senha:" value={senha} onChange={e => setSenha(e.target.value)}></input>
 
-          <input class="input-home" type="date" id="birthday" name="birthday" required value={formData.data}></input>
+          <input class="input-home" type="date" id="birthday" name="birthday" value={data} onChange={e => setData(e.target.value)}></input>
           
-          <button class="input-home" type="submit" id="Cadastro">Cadastrar-se</button>
+          <button class="input-home" id="Cadastro" onClick={handleSubmit}>Cadastrar-se</button>
         </div>
   
       </div>
       </section>
-
-      {/* COMO O SECTION FUNCIONA DIVIDINDO A PAGINA */}
-      {/* <section className='hero'>
-        <h1>Pagina de Cadastro</h1>
-      </section>
-      <section className='hero'>
-        <h1>Cadastro meio</h1>
-      </section>
-      <section className='hero'>
-        <h1>Pagina FIM</h1>
-      </section> */}
-
+      </form>
     </>
+    
   )
 }
 
-export default Cadastro()
- 
+export default Cadastro;
 
 
