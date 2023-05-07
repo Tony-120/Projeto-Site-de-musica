@@ -3,34 +3,31 @@ import "./navbar.css"
 import { Link } from "react-router-dom"
 import { FaBars } from "react-icons/fa"
 import { ImCross } from "react-icons/im"
+import logoImg from './Imagens/logo.PNG'
 
 const Navbar = () => {
   const [Mobile, setMobile] = useState(false)
   return (
     <>
       <nav className='navbar'>
-        <p link='imagens/captura.png'>Logo</p>
+      <img className="Logo" src={logoImg} alt="Logo"/>
 
+            {/* Lista da Navbar la em cima */}
         <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
           <Link to='/' className='home'>
             <li>Home</li>
           </Link>
-          <Link to='/about' className='about'>
-            <li>About</li>
+          <Link to='/sobre' className='sobre'>
+            <li>Sobre</li>
           </Link>
-          <Link to='/services' className='services'>
-            <li>Services</li>
+          <Link to='/Cadastro' className='Cadastro'>
+            <li>Cadastro</li>
           </Link>
-          <Link to='/skills' className='skills'>
-            <li>Skills</li>
-          </Link>
-          <Link to='/contact' className='home'>
-            <li>contact</li>
+          <Link to='/login' className='login'>
+            <li>Login</li>
           </Link>
         </ul>
-        {/* 
-        whenever we click on button = setMobile(!Mobile) ==  is mobile oppsite to setMobile 
-        */}
+        {/* Icone importado com a biblioteca quando clicar */}
         <button className='mobile-menu-icon' onClick={() => setMobile(!Mobile)}>
           {Mobile ? <ImCross /> : <FaBars />}
         </button>

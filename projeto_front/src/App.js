@@ -1,13 +1,10 @@
 import React from "react"
-import Navbar from "./components/Navbar"
-import Home from "./components/Home"
-import About from "./components/About"
-import Skills from "./components/Skills"
-import Contact from "./components/Contact"
-import Services from "./components/Services"
+import Navbar from "./compoent/Navbar"
+import Home from "./compoent/Home"
+import Sobre from "./compoent/Sobre"
+import Login from "./compoent/Login"
+import Cadastro from "./compoent/Cadastro"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-
-//npm install react-router-dom@5
 
 function App() {
   return (
@@ -16,22 +13,21 @@ function App() {
         <Navbar />
 
         <Switch>
-          <Route path='/' components={Home} exact>
+          {/* Route é a Rota para que o Site vai quando Clicar */}
+          <Route path='/' compoent={Home} exact>
             <Home />
           </Route>
-          <Route path='/about' components={About} exact>
-            <About />
+          <Route path='/sobre' compoent={Sobre} exact>
+            <Sobre />
           </Route>
-          <Route path='/skills' components={Skills} exact>
-            <Skills />
+          <Route path='/login' compoent={Login} exact>
+            <Login />
           </Route>
-          <Route path='/contact' components={Contact} exact>
-            <Contact />
-          </Route>
-          <Route path='/services' components={Services} exact>
-            <Services />
+          <Route path='/cadastro' compoent={Cadastro} exact>
+            <Cadastro />
           </Route>
         </Switch>
+
       </Router>
     </>
   )

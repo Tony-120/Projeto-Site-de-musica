@@ -7,9 +7,9 @@ contador = 0;
 
   app.post('/aluno',  (req, res) => {
     contador++;
-    const { cpf, nome, endereco, cep, telefone, email, especializacao } = req.body;
+    const { nome, cpf, endereco, cep, telefone, email, senha, data } = req.body;
     aluno[contador] = {
-      cpf, nome, endereco, cep, telefone, email, especializacao 
+      nome, cpf, endereco, cep, telefone, email, senha, data
     }
  
     res.status(201).send(aluno[contador]);
@@ -21,5 +21,5 @@ contador = 0;
   });
 
   app.listen(7000, () => {
-    console.log('Cadastro Aluno. Porta 7000');
+    console.log('Cadastro Aluno. Porta 3000');
   });

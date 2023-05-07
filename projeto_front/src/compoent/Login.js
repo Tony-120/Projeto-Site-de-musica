@@ -1,12 +1,12 @@
 import React from "react"
 
-const About = () => {
+const Login = () => {
   return (
     <>
       <section className='hero'>
-        <h1>Welcome To About Page</h1>
+        <h1>Pagina de Login</h1>
       </section>
     </>
   )
 }
-export default About
+export default Login

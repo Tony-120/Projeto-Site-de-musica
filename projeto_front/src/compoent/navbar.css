@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -19,10 +19,14 @@ li {
   height: 10vh;
   box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
 
-  /*box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;*/
+
 }
-.logo {
-  font-size: 30px;
+.Logo {
+  max-width:300px;
+  max-height:150px;
+  width: auto;
+  height: auto;
+  
 }
 .nav-links {
   display: flex;
@@ -56,8 +60,8 @@ button {
   background: none;
 }
 @media (max-width: 768px) {
-  .logo {
-    display: flex;
+  .Logo {
+    display: block;
     position: absolute;
     top: 15px;
     left: 35px;
@@ -85,7 +89,10 @@ button {
   .mobile-menu-icon {
     position: absolute;
     display: block;
-    right: 20px;
+    right: 30px;
+    font-size: 50px;
+    
+    
   }
   .hero h1 {
     font-size: 50px;
