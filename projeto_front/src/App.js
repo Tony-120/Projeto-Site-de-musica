@@ -4,6 +4,7 @@ import Home from "./compoent/Home"
 import Sobre from "./compoent/Sobre"
 import Login from "./compoent/Login"
 import Cadastro from "./compoent/Cadastro"
+import Consulta from "./compoent/Consulta"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 function App() {
@@ -26,8 +27,10 @@ function App() {
           <Route path='/cadastro' compoent={Cadastro} exact>
             <Cadastro />
           </Route>
+          <Route path='/consulta' compoent={Consulta} exact>
+            <Consulta />
+          </Route>
         </Switch>
-
       </Router>
     </>
   )

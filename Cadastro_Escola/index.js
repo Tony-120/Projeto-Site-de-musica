@@ -26,12 +26,16 @@ app.get('/escola', (req, res) => {
   });
 
   app.post('/eventos', (req, res) => {
+    const { tipo, dados } = req.body;
+    if (tipo === "EscolaCriada") {
+      setEscolas((prevEscolas) => [...prevEscolas, dados]);
+    }
     console.log(req.body)
     res.status(200).send({msg: 'ok'})
   })
 
 
-  app.listen(5000, () => {
-    console.log('Cadastro Escola. Porta 5000');
+  app.listen(8000, () => {
+    console.log('Cadastro Escola. Porta 8000');
     
   })
