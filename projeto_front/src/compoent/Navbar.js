@@ -23,6 +23,9 @@ const Navbar = () => {
           <Link to='/Cadastro' className='Cadastro'>
             <li>Cadastro</li>
           </Link>
+          <Link to='/Consulta' className='consulta'>
+            <li>Consulta</li>
+          </Link>
           <Link to='/login' className='login'>
             <li>Login</li>
           </Link>
