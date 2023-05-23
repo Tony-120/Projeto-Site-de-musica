@@ -59,7 +59,7 @@ button {
   font-size: 20px;
   background: none;
 }
-@media (max-width: 768%) {
+@media (max-width: 1057px) {
   .Logo {
     position: absolute;
     top: 15%;
@@ -68,7 +68,7 @@ button {
   .nav-links {
     display: none;
   }
-  .nav-links-mobile {
+  .nav-links-mobile  {
     position: absolute;
     display: block;
     list-style: none;
@@ -76,8 +76,8 @@ button {
     left: 0;
     top: 10%;
     transition: all 0.5s ease-in-out;
-    width: 100%;
-    background-color: white;
+    width: 100% !important;
+    background-color: white !important;
   }
   ul li {
     padding: 32px;

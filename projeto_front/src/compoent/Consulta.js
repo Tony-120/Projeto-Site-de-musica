@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Consulta.css";
-
+import "./navbar.css";
 const Consulta = () => {
-  const [escolas, setEscolas] = useState([]);
+  
+    const [escolas, setEscolas] = useState([]);
 
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyB80C0rARCy3bPe_rtfWx_4syxUsB-7Nm4"
-  });
+    const { isLoaded } = useJsApiLoader({
+      id: 'google-map-script',
+      googleMapsApiKey: "AIzaSyB80C0rARCy3bPe_rtfWx_4syxUsB-7Nm4"
+    });
 
-  const position = {
-    lat: -23.5522189,
-    lng: -46.7500382,
-  };
+    const position = {
+      lat: -23.5522189,
+      lng: -46.7500382,
+    };
 
-  return (
+    return (
     <div className="container">
       <div className="row">
         <div className="col-md-6">

@@ -5,7 +5,7 @@ const Sobre = () => {
     <>
     {/* hero serve para deixar centarlizado */}
       <section className='hero'>
-        <h1>Descrever o Projeto</h1>
+        <h1>cadastro escola</h1>
       </section>
     </>
   )

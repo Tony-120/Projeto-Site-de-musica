@@ -6,20 +6,25 @@ app.use(express.json())
 const ExibirDados = {}
 
 const funcoes = {
+
   EscolaCriada: (escola) => {
     ExibirDados[escola.contador] = escola
   },
-  ProfessorCriado: (professor) => {
-    const profesorC = ExibirDados[professor.escolaId]['PROFESSOR CADASTRADO'] || []
-    profesorC.push(professor)
-    ExibirDados[professor.escolaId]['PROFESSOR CADASTRADO'] = profesorC
-  },
 
+  AlunoCriado: (aluno) => {
+    ExibirDados[aluno.contador] = aluno
+  },
+  
 }
 
 app.get('/escola', (req, res) => {
   res.status(200).send(ExibirDados)  
 })
+
+app.get('/aluno', (req, res) => {
+  res.status(200).send(ExibirDados)  
+})
+
 
 app.post('/eventos', (req, res) => {
   try{

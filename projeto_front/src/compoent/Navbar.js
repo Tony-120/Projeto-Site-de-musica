@@ -30,6 +30,7 @@ const Navbar = () => {
             <li>Login</li>
           </Link>
         </ul>
+        
         {/* Icone importado com a biblioteca quando clicar */}
         <button className='mobile-menu-icon' onClick={() => setMobile(!Mobile)}>
           {Mobile ? <ImCross /> : <FaBars />}

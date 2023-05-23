@@ -7,7 +7,7 @@ import "./Home.css"
 const Home = () => {
   return (
     <>
-        <img className="piano" src={PianoImg} alt="piano"/>
+         <img className="piano" src={PianoImg} alt="piano"/> 
         {/* <div class="corpo">
         <img src={PianoImg} alt="piano"/>
         <img src={Nota} alt="icon music"/>
