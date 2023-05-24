@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Consulta.css";
-import "./navbar.css";
+
 const Consulta = () => {
   
     const [escolas, setEscolas] = useState([]);

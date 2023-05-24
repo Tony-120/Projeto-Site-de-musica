@@ -15,12 +15,13 @@ const Navbar = () => {
         <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
           <Link to='/' className='home'>
             <li>Home</li>
+            
           </Link>
-          <Link to='/sobre' className='sobre'>
-            <li>Cadastro Escola</li>
+          <Link to='/CadastroEscola' className='CadastroEscola'>
+            <li>Escola</li>
           </Link>
           <Link to='/Cadastro' className='Cadastro'>
-            <li>Cadastro</li>
+            <li>Aluno</li>
           </Link>
           <Link to='/Consulta' className='consulta'>
             <li>Consulta</li>

@@ -1,12 +1,13 @@
 import React from "react"
 import Navbar from "./compoent/Navbar"
 import Home from "./compoent/Home"
-import Sobre from "./compoent/Sobre"
+import CadastroEscola from "./compoent/Cadastro_Escola"
 import Login from "./compoent/Login"
 import Cadastro from "./compoent/Cadastro"
 import Consulta from "./compoent/Consulta"
 import RecuperarSenha from "./compoent/RecuperarSenha"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Cadastro_Escola from "./compoent/Cadastro_Escola"
 
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
           <Route path='/' compoent={Home} exact>
             <Home />
           </Route>
-          <Route path='/sobre' compoent={Sobre} exact>
-            <Sobre />
+          <Route path='/CadastroEscola' compoent={CadastroEscola} exact>
+            <Cadastro_Escola />
           </Route>
           <Route path='/login' compoent={Login} exact>
             <Login />

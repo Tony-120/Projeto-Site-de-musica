@@ -1,31 +1,22 @@
 import React, { useState } from "react"
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Cadastro.css"
 
-const Cadastro = () => {
 
-  const [nome, setNome] = useState("")
-  const [cpf, setCPF] = useState("")
+const Cadastro_Escola = () => {
+  const [razaosocial, setrazaosocial] = useState("")
+  const [cnpj, setcnpj] = useState("")
   const [endereco, setEndereco] = useState("")
   const [cep, setCEP] = useState("")
   const [telefone, setTelefone] = useState("")
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
-  const [data, setData] = useState("")
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:5000/aluno', {
-      nome,
-      cpf,
-      endereco,
-      cep,
-      telefone,
-      email,
-      senha,
-      data
+    axios.post('http://localhost:8000/escola', {
+
+      cnpj, razaosocial, endereco, cep, telefone, email,
     })
     .then(response => {
       console.log(response);
@@ -47,9 +38,8 @@ const Cadastro = () => {
 
                   <div class="text-center">
                     
-                    <h2 class="mt-1 mb-5 pb-1">Crie sua conta</h2><hr></hr>
-                    <h5 class="label-subtitulo">Já possui cadastro?</h5>                   
-                    <a href="/"class="link-login">Login</a>
+                    <h2 class="mt-1 mb-5 pb-1">Cadastro de Escolas</h2><hr></hr>
+                    
                   </div><br></br>
                   <form>
 
@@ -57,19 +47,15 @@ const Cadastro = () => {
                     <div class="row">
 
                       <div class="form-group col-md-6 pb-4">
-                        <label>Nome</label>
-                        <input type="text" class="form-control" id="inserir-nome" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)}></input>  
+                        <label>Razão Social</label>
+                        <input type="text" class="form-control" id="inserir-razaosocial" placeholder="Razão social" value={razaosocial} onChange={e => setrazaosocial(e.target.value)}></input>  
                       </div>
                                           
-                      <div class="form-group col-md-3 pb-4">
-                        <label>CPF </label>
-                        <input type="text" class="form-control" id="inserir-cpf" placeholder="CPF" value={cpf} onChange={e => setCPF(e.target.value)}></input>
+                      <div class="form-group col-md-6 pb-4">
+                        <label>CNPJ </label>
+                        <input type="text" class="form-control" id="inserir-cnpj" placeholder="Digite o Cnpj" value={cnpj} onChange={e => setcnpj(e.target.value)}></input>
                       </div>
       
-                      <div class="form-group col-md-3 pb-4">
-                        <label>Data de Nascimento</label>                      
-                        <input class="input-home" type="date" id="birthday" name="birthday" value={data} onChange={e => setData(e.target.value)}></input>
-                      </div>
                     </div>                  
                   </div> 
 
@@ -134,7 +120,7 @@ const Cadastro = () => {
                     </div>  
                   </div>
                   <div class="text-center">
-                  <button type="submit" class="btn btn-dark col-md-6" onClick={handleSubmit}>Cadastrar</button>
+                  <button type="submit" class="btn btn-dark col-md-6 " onClick={handleSubmit}>Cadastrar</button>
                   </div>
                 </form>
                 </div>
@@ -148,5 +134,4 @@ const Cadastro = () => {
   )
 }
 
-export default Cadastro;
-
+export default Cadastro_Escola
