@@ -11,7 +11,6 @@ const Navbar = () => {
     <>
       <nav className='navbar'>
       <img className="Logo" src={logoImg} alt="Logo"/>
-
             {/* Lista da Navbar la em cima */}
         <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
           <Link to='/' className='home'>

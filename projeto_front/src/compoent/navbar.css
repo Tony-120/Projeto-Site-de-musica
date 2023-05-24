@@ -16,17 +16,17 @@ li {
 .navbar {
   display: flex;
   justify-content: space-around;
-  align-items: center ;
+  align-items: center;
   height: 10vh;
-  box-shadow: rgba(12, 75, 134, 0.23) 0px 30px 30px -20px;
+  box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
 
 
 }
 .Logo {
   max-width:150%;
   max-height:75%;
-  position: absolute;
-  
+  height: 100px;
+  align-items: top;
   
 }
 .nav-links {
