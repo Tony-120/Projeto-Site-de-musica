@@ -7,27 +7,32 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 li {
   list-style-type: none;
+  
 }
 .navbar {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: center ;
   height: 10vh;
+<<<<<<< HEAD
   box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
   position: relative;
   z-index: 9999; 
+=======
+  box-shadow: rgba(12, 75, 134, 0.23) 0px 30px 30px -20px;
+>>>>>>> 2e3f550adf4f52a4dbf818452b2fecc3911f5693
 
 
 }
 .Logo {
   max-width:150%;
   max-height:75%;
-  width: auto;
-  height: auto;
+  position: absolute;
+  
   
 }
 .nav-links {
