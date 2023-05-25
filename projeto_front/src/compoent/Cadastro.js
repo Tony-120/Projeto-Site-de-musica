@@ -134,7 +134,7 @@ const Cadastro = () => {
                     </div>  
                   </div>
                   <div class="text-center">
-                  <button type="submit" class="btn btn-dark col-md-6" onClick={handleSubmit}>Cadastrar</button>
+                  <button type="submit" class="btn btn-dark col-md-6 " onClick={handleSubmit}>Cadastrar</button>
                   </div>
                 </form>
                 </div>

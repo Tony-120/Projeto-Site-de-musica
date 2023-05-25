@@ -23,7 +23,7 @@ const Consulta = () => {
         <div className="col-md-6">
           <h1>Buscar Escolas</h1>
 
-            <div className="btn-group">
+            <div className="btn-group ">
               <button className="btn btn-primary btn-block">Usar minha localização atual</button> 
             </div>  
 
