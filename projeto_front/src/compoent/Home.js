@@ -36,7 +36,7 @@ const Home = () => {
         <div className="col text-end">
           <img className="mx-auto text-start" src={PianoImg} alt="piano"/>
         </div>
-          <img src={Nota} alt="icon music"/>
+          <img class=" mt-7" src={Nota} alt="icon music"/>
         </div>
       </div>
     </div>
