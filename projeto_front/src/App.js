@@ -1,6 +1,7 @@
 import React from "react"
 import Navbar from "./compoent/Navbar"
 import Home from "./compoent/Home"
+import Sobre from "./compoent/Sobre"
 import CadastroEscola from "./compoent/Cadastro_Escola"
 import Login from "./compoent/Login"
 import Cadastro from "./compoent/Cadastro"
@@ -19,6 +20,9 @@ function App() {
           {/* Route é a Rota para que o Site vai quando Clicar */}
           <Route path='/' compoent={Home} exact>
             <Home />
+          </Route>
+          <Route path='/Sobre' compoent={Sobre} exact>
+            <Sobre />
           </Route>
           <Route path='/CadastroEscola' compoent={CadastroEscola} exact>
             <Cadastro_Escola />
