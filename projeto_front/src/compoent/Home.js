@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
+import PianoImg from './Imagens/piano.png'
+import Nota from './Imagens/icon music.PNG'
+import EncontreAula from './Imagens/Encontre sua escola.PNG'
+import "./Home.css"
 import { useHistory } from 'react-router-dom';
-import PianoImg from './Imagens/piano.jpg';
-import Nota from './Imagens/icon music.PNG';
-import EncontreAula from './Imagens/Encontre sua escola.PNG';
-import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
   const history = useHistory();
-
-  useEffect(() => {
-    // Trava a rolagem da página quando o componente é montado
-    document.body.style.overflow = 'hidden';
-  });
+  // useEffect(() => {
+  //   // Trava a rolagem da página quando o componente é montado
+  //   document.body.style.overflow = 'hidden';
+  // });
 
   const handleLeiaMaisClick = () => {
     history.push('/sobre');
@@ -21,37 +20,33 @@ const Home = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col">
-          <div className="m" id="conteudo">
-            <strong className="texto">Aulas de Musica</strong>
+        <div className="text-center">
+          <div className="text-center" id="conteudo ">
+            <strong className="texto">Aulas de Música</strong> 
           </div>
           <div className="position-relative">
-            <img className="mx-auto text-start" src={EncontreAula} alt="EncontreAula" />
+            <img className="img-fluid w-70 h-70 transition-scale" src={EncontreAula} alt="EncontreAula"/>
           </div>
         </div>
+        
+        
       </div>
-      <div className="row justify-content-center">
-        <div className="col-md-3 text-center">
-          <button
-            className="btn btn-dark ml-6 w-100"
-            type="submit"
-            id="LeiaMais"
-            onClick={handleLeiaMaisClick}
-          >
-            Leia mais
-          </button>
+      <div className="text-center">
+        <button className="btn btn-dark btn-center ml-3 w-25 text-center " type="submit" id="LeiaMais" 
+        onClick={handleLeiaMaisClick}>Leia Mais</button>
         </div>
-      </div>
-      <div className="row mt-0 ml-6">
-        <div className="col text-start">
-          <div className="col text-end">
-            <img className="mx-auto text-start" src={PianoImg} alt="piano" />
+        <div className="row mt-5 ml-6">
+          <div className="col justify-content-center" id="notamusica">
+            <img className="icon img-static " src={Nota} alt="icon music" />
           </div>
-          <img className="mt-7" src={Nota} alt="icon music" />
-        </div>
+            <div className="col text-end position-relative">
+              <img className="mx-auto text-start img-static " src={PianoImg} alt="piano" />
+            </div>
       </div>
+
     </div>
-  );
-};
+  )
+}
 
 export default Home;
+

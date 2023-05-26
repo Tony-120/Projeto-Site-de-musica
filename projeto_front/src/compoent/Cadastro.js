@@ -49,7 +49,7 @@ const Cadastro = () => {
                     
                     <h2 class="mt-1 mb-5 pb-1">Crie sua conta</h2><hr></hr>
                     <h5 class="label-subtitulo">Já possui cadastro?</h5>                   
-                    <a href="/"class="link-login">Login</a>
+                    <a href="/login"class="link-login">Login</a>
                   </div><br></br>
                   <form>
 
