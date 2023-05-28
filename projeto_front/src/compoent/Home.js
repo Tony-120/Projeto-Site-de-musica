@@ -5,6 +5,7 @@ import EncontreAula from './Imagens/Encontre sua escola.PNG'
 import "./Home.css"
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Copyright from "./Copyright"
 
 const Home = () => {
   const history = useHistory();
@@ -43,7 +44,7 @@ const Home = () => {
               <img className="mx-auto text-start img-static " src={PianoImg} alt="piano" />
             </div>
       </div>
-
+      <Copyright />
     </div>
   )
 }

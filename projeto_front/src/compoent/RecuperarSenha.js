@@ -1,4 +1,5 @@
 import React from "react"
+import Copyright from "./Copyright"
 
 const RecuperarSenha = () => {
   return (
@@ -26,6 +27,7 @@ const RecuperarSenha = () => {
                 </div>
             </div>
         </div>
+        <Copyright />
     </div>
     </>
   )

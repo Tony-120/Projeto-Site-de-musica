@@ -2,6 +2,8 @@ import React from 'react';
 import './Sobre.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nota from './Imagens/icon music.PNG';
+import Copyright from './Copyright'
+
 const Sobre = () => {
   return (
     
@@ -29,7 +31,7 @@ const Sobre = () => {
     <img className="mt-4 w-25 h-25" src={Nota} alt="icon music" />
         
   </section>
-  
+  <Copyright />
   </div>
   );
 }

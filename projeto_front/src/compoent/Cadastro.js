@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Cadastro.css"
+import "./Cadastro.css";
+import Copyright from "./Copyright"
 
 const Cadastro = () => {
 
@@ -142,6 +143,7 @@ const Cadastro = () => {
               </div>
             </div>
           </div>
+          <Copyright />
         </div>
       </form>
     </>

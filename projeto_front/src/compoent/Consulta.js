@@ -3,6 +3,7 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Consulta.css";
 import EscolaList from "./EscolaList";
+import Copyright from "./Copyright"
 
 const Consulta = () => {
   const [escolas, setEscolas] = useState([]);
@@ -101,6 +102,7 @@ const Consulta = () => {
           </div>
         </div>
       </div>
+      <Copyright />
     </div>
   );
 };
