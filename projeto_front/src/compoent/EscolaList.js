@@ -32,9 +32,9 @@ const EscolaList = () => {
         <ul className="text-left"> {/* Adicionada a classe text-left */}
           {escolas.map((escola, index) => (
             <li key={index}>
-              <p>Nome:</p> {escola.razaosocial}<br />
-              <p>Endereço:</p> {escola.endereco}<br />
-              <p>CEP:</p> {escola.cep}<br/>
+              <h6>Nome:</h6> {escola.razaosocial}<br />
+              <h6>Endereço:</h6> {escola.endereco}<br />
+              <h6>CEP:</h6> {escola.cep}<br/>
               <hr></hr>
             </li>
           ))}
