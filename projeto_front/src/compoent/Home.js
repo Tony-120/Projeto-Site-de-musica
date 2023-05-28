@@ -6,25 +6,23 @@ import "./Home.css"
 
 const Home = () => {
   return (
-    <>
-         <img className="piano" src={PianoImg} alt="piano"/> 
-        {/* <div class="corpo">
-        <img src={PianoImg} alt="piano"/>
-        <img src={Nota} alt="icon music"/>
 
-        
-        <div id="conteudo">
-            <strong className="texto">Aulas de Musica</strong>
-            <img src={EncontreAula} alt="icon music"/>
-            <div>
-            <button type="submit" id="LeiaMais">Leia mais</button>
+    <section className='home_container'>
+        <h1>Aulas de musica</h1>
+        <img src={EncontreAula} alt="icon music" id="Aula"/>
+        <button type="submit" id="LeiaMais">Leia mais</button>   
+
+            <div className="Piano">
+              <img src={PianoImg} alt="piano" id="piano"/>
             </div>
-        </div>
-        </div> */}
 
-      
-   
-    </>
+            <div className="imagem" id="icone">
+              <img src={Nota} alt="Icon Music"/>
+            </div>
+      </section>
+       
+
+    
   )
 }
 export default Home
