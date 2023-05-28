@@ -50,6 +50,22 @@ const Consulta = () => {
     lng: -46.6333, // longitude de SPzada
   };
 
+  useEffect(() => {
+    // Função para buscar as escolas
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/escola');
+        const data = await response.json();
+        setEscolas(data);
+
+      } catch (error) {
+        console.error("Erro ao buscar as escolas:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleUseLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -74,17 +90,18 @@ const Consulta = () => {
     <div className="container">
       <div className="row">
         <div className="col-md-6 text-center">
-          <h2 className="mt-1 mb-5 pb-1">Buscar Escolas<hr /></h2>
+          <h2 className="mt-1 mb-0 pb-0">Buscar Escolas<hr /></h2>
           <div className="container">
             <div className="form-group text-center">
               <button className="btn btn-dark col-md-6" onClick={handleUseLocation}>Usar minha localização atual</button>
             </div>
           </div>
+          
           <div>
             <EscolaList escolas={escolas} userLocation={currentLocation} />
           </div>
         </div>
-
+    
         <div className="col-md-6">
           <div className="map">
             {isLoaded ? (
@@ -97,7 +114,7 @@ const Consulta = () => {
                   <Marker
                     position={currentLocation}
                     options={{
-                      icon: { //aqui tem aquele treco que marca o maps
+                      icon: {
                         url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
                       },
                     }}
@@ -124,7 +141,8 @@ const Consulta = () => {
               <></>
             )}
           </div>
-        </div>
+      </div>
+
       </div>
       <Copyright />
     </div>

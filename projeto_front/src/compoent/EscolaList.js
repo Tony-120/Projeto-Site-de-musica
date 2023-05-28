@@ -1,73 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactDOM from 'react-dom';
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const EscolaList = ({ escolas, userLocation }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+const EscolaList = () => {
+  const [escolas, setEscolas] = useState([]);
+  
 
-  const filterEscolas = (escolas) => {
-    return escolas.filter((escola) =>
-      escola.nome.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  };
+  useEffect(() => {
+    // Função para buscar as escolas
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/escola');
+        const data = await response.json();
+        setEscolas(data);
 
-  const calculateDistance = (escolaLocation) => {
-    const lat1 = userLocation.lat;
-    const lng1 = userLocation.lng;
-    const lat2 = escolaLocation.lat;
-    const lng2 = escolaLocation.lng;
+      } catch (error) {
+        console.error("Erro ao buscar as escolas:", error);
+      }
+    };
 
-    // Fórmula p calculo de distancia entre dois pontos geograficos (coordenadas)
-    const R = 6371; // Raio da Terra em km
-    const dLat = ((lat2 - lat1) * Math.PI) / 180;
-    const dLng = ((lng2 - lng1) * Math.PI) / 180;
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos((lat1 * Math.PI) / 180) *
-        Math.cos((lat2 * Math.PI) / 180) *
-        Math.sin(dLng / 2) *
-        Math.sin(dLng / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c;
-
-    return distance.toFixed(2); // Retorna a distancia arredondada com 2 casas decimais
-  };
-
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const filteredEscolas = filterEscolas(escolas);
+    fetchData();
+  }, []);
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-md-12">
-        
-          <input
-            type="text"
-            className="form-control mb-3"
-            placeholder="Pesquisar escola"
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-          <hr></hr>
-
-          {filteredEscolas.length > 0 ? (
-            <ul className="list-group">
-              {filteredEscolas.map((escola) => (
-                <li className="list-group-item" key={escola.id}>
-                  <h5>{escola.nome}</h5>
-                  <p>{escola.endereco}</p>
-                  <p>Distância do usuário: {calculateDistance(escola.localizacao)} km</p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>Nenhum resultado encontrado.</p>
-          )}
-        </div>
+  <div className="row">
+    <div className="text-justify"> {/* Adicionado a classe text-justify */}
+      <div className="escolas-list">
+        <h2>Lista de Escolas</h2>
+        <ul className="text-left"> {/* Adicionada a classe text-left */}
+          {escolas.map((escola, index) => (
+            <li key={index}>
+              <p>Nome:</p> {escola.razaosocial}<br />
+              <p>Endereço:</p> {escola.endereco}<br />
+              <p>CEP:</p> {escola.cep}<br/>
+              <hr></hr>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
+  </div>
+</div>
+
   );
 };
 

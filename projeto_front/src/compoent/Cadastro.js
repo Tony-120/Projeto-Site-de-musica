@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Cadastro.css";
-import Copyright from "./Copyright"
+import "./Cadastro.css"
 
 const Cadastro = () => {
 
@@ -14,26 +13,48 @@ const Cadastro = () => {
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
   const [data, setData] = useState("")
+  const [cadastroValido, setcadastroValido] = useState(false);
+  const [infValidas, setinfValidas] = useState(true);
+  
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => {    
     event.preventDefault();
+        
+    if (
+      nome === "" || 
+      cpf === "" ||
+      endereco === "" ||
+      cep === "" ||
+      telefone === "" ||
+      email === "" ||
+      senha === "" ||
+      data === ""){
 
-    axios.post('http://localhost:5000/aluno', {
-      nome,
-      cpf,
-      endereco,
-      cep,
-      telefone,
-      email,
-      senha,
-      data
-    })
+        setinfValidas(false);
+
+      }
+    else{ 
+      setinfValidas(true);
+      axios.post('http://localhost:5000/aluno', {
+        nome,
+        cpf,
+        endereco,
+        cep,
+        telefone,
+        email,
+        senha,
+        data
+      })
     .then(response => {
       console.log(response);
+      setcadastroValido(true);
+      window.location.href = '/login';
     })
     .catch(error => {
       console.log(error);
     });
+
+  }
 
   }
   return (
@@ -47,12 +68,11 @@ const Cadastro = () => {
                 <div class="card-body p-md-5 mx-md-4">
 
                   <div class="text-center">
-                    <h2 class="mt-1 mb-5 pb-1">Crie sua conta</h2>
-                    <hr></hr>
+                    
+                    <h2 class="mt-1 mb-5 pb-1">Crie sua conta</h2><hr></hr>
                     <h5 class="label-subtitulo">Já possui cadastro?</h5>                   
                     <a href="/login"class="link-login">Login</a>
-                  </div>
-                  <br></br>
+                  </div><br></br>
                   <form>
 
                   <div class="form-row">
@@ -136,14 +156,20 @@ const Cadastro = () => {
                     </div>  
                   </div>
                   <div class="text-center">
-                  <button type="submit" class="btn btn-dark col-md-6 " onClick={handleSubmit}>Cadastrar</button>
+                  
+                  <button type="submit" class="btn btn-dark col-md-6" onClick={handleSubmit}>Cadastrar</button>                  
+                  {cadastroValido && <div class="alert alert-success mt-4" role="alert">
+                    Cadastrado com Sucesso!
+                  </div>}
+                  {!infValidas && <div class="alert alert-danger mt-4" role="alert">
+                    Preencha todas as Informações!
+                  </div>} 
                   </div>
                 </form>
                 </div>
               </div>
             </div>
           </div>
-          <Copyright />
         </div>
       </form>
     </>
@@ -152,4 +178,3 @@ const Cadastro = () => {
 }
 
 export default Cadastro;
-

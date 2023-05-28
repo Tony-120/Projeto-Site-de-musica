@@ -10,8 +10,8 @@ import Copyright from "./Copyright"
 const Home = () => {
   const history = useHistory();
   // useEffect(() => {
-  //   // Trava a rolagem da página quando o componente é montado
-  //   document.body.style.overflow = 'hidden';
+  // Trava a rolagem da página quando o componente é montado
+  // document.body.style.overflow = 'hidden';
   // });
 
   const handleLeiaMaisClick = () => {
