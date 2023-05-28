@@ -16,7 +16,7 @@ const EscolaList = ({ escolas, userLocation }) => {
     const lat2 = escolaLocation.lat;
     const lng2 = escolaLocation.lng;
 
-    // Fórmula para cálculo de distância entre dois pontos geográficos (coordenadas)
+    // Fórmula p calculo de distancia entre dois pontos geograficos (coordenadas)
     const R = 6371; // Raio da Terra em km
     const dLat = ((lat2 - lat1) * Math.PI) / 180;
     const dLng = ((lng2 - lng1) * Math.PI) / 180;
@@ -29,7 +29,7 @@ const EscolaList = ({ escolas, userLocation }) => {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c;
 
-    return distance.toFixed(2); // Retorna a distância arredondada com 2 casas decimais
+    return distance.toFixed(2); // Retorna a distancia arredondada com 2 casas decimais
   };
 
   const handleSearch = (event) => {
@@ -42,6 +42,7 @@ const EscolaList = ({ escolas, userLocation }) => {
     <div className="container">
       <div className="row">
         <div className="col-md-12">
+        
           <input
             type="text"
             className="form-control mb-3"
@@ -49,6 +50,7 @@ const EscolaList = ({ escolas, userLocation }) => {
             value={searchTerm}
             onChange={handleSearch}
           />
+          <hr></hr>
 
           {filteredEscolas.length > 0 ? (
             <ul className="list-group">

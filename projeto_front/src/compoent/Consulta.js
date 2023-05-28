@@ -14,7 +14,7 @@ const Consulta = () => {
 
   useEffect(() => {
     if (currentLocation) {
-      // aqui faço a função de procurar escolas próximas
+      // Aqui você pode fazer a função de procurar escolas próximas
       console.log("Localização atual:", currentLocation);
     }
   }, [currentLocation]);
@@ -40,54 +40,37 @@ const Consulta = () => {
     }
   };
 
-  // const position = currentLocation || {
-  //   lat: -83.5522189,
-  //   lng: -46.7500382,
-  // };
-
   const center = currentLocation || {
     lat: -23.5505, // latitude de São Paulo, por exemplo
-    lng: -115.6333, // longitude de São Paulo, por exemplo
+    lng: -46.6333, // longitude de São Paulo, por exemplo
   };
-  
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6 text-center">
-          <h2 className="mt-1 mb-5 pb-1">Buscar Escolas</h2>
-        
-          <div className="btn-group">
-            <button
-              className="btn btn-primary btn-block"
-              onClick={handleLocationClick}
-            >
-              Usar minha localização atual
-            </button>
-          </div>
-
+          <h2 className="mt-1 mb-5 pb-1">Buscar Escolas<hr /></h2>
           <div className="container">
-            <div className="form-group">
-              <label htmlFor="inputField">Buscar por bairro ou cidade</label>
-              <input type="text" className="form-control" id="inputField" />
+            <div className="form-group text-center">
+              <button className="btn btn-dark col-md-6" onClick={handleLocationClick}>Usar minha localização atual</button>
             </div>
           </div>
-
-          <hr />
-
-          <EscolaList escolas={escolas} userLocation={currentLocation} />
+          <div>
+            <EscolaList escolas={escolas} userLocation={currentLocation} />
+          </div>
         </div>
 
         <div className="col-md-6">
           <div className="map">
             {isLoaded ? (
               <GoogleMap
-              mapContainerStyle={{ width: "127%", height: "640px" }}
-              center={center}
-              zoom={15}
+                mapContainerStyle={{ width: "100%", height: "640px" }}
+                center={center}
+                zoom={15}
               >
                 {currentLocation && (
                   <Marker
-                  position={currentLocation}
+                    position={currentLocation}
                     options={{
                       icon: {
                         url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
