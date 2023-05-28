@@ -3,7 +3,7 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Consulta.css";
 import EscolaList from "./EscolaList";
-import Copyright from "./Copyright"
+import Copyright from "./Copyright";
 
 const Consulta = () => {
   const [escolas, setEscolas] = useState([]);
@@ -14,18 +14,47 @@ const Consulta = () => {
   });
 
   useEffect(() => {
+    const handleUseLocation = (position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const location = {
+        lat: latitude,
+        lng: longitude,
+      };
+      setCurrentLocation(location);
+    };
+
+    // DidMount
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        handleUseLocation,
+        (error) => {
+          console.log("Erro ao encontrar localização:", error);
+        }
+      );
+    } else {
+      console.log("Geolocalização não suportada pelo navegador.");
+    }
+  }, []);
+
+  useEffect(() => {
+    // DidUpdate
     if (currentLocation) {
-      // Aqui você pode fazer a função de procurar escolas próximas
+      // Aqui faço função de procurar escolas próximas
       console.log("Localização atual:", currentLocation);
     }
   }, [currentLocation]);
 
-  const handleLocationClick = () => {
+  const center = currentLocation || {
+    lat: -23.5505, // latitude de SPzada
+    lng: -46.6333, // longitude de SPzada
+  };
+
+  const handleUseLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
+          const { latitude, longitude } = position.coords;
           const location = {
             lat: latitude,
             lng: longitude,
@@ -41,11 +70,6 @@ const Consulta = () => {
     }
   };
 
-  const center = currentLocation || {
-    lat: -23.5505, // latitude de São Paulo, por exemplo
-    lng: -46.6333, // longitude de São Paulo, por exemplo
-  };
-
   return (
     <div className="container">
       <div className="row">
@@ -53,7 +77,7 @@ const Consulta = () => {
           <h2 className="mt-1 mb-5 pb-1">Buscar Escolas<hr /></h2>
           <div className="container">
             <div className="form-group text-center">
-              <button className="btn btn-dark col-md-6" onClick={handleLocationClick}>Usar minha localização atual</button>
+              <button className="btn btn-dark col-md-6" onClick={handleUseLocation}>Usar minha localização atual</button>
             </div>
           </div>
           <div>
@@ -73,7 +97,7 @@ const Consulta = () => {
                   <Marker
                     position={currentLocation}
                     options={{
-                      icon: {
+                      icon: { //aqui tem aquele treco que marca o maps
                         url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
                       },
                     }}
