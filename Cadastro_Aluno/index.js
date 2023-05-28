@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 app.use(cors()); 
 const axios = require ('axios')
-
+//require('../projeto_front/src/config/dbConfig')
 
 // Use o middleware cors para permitir todas as origens
 

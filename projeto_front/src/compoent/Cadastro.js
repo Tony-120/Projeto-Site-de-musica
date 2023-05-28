@@ -3,6 +3,9 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Cadastro.css"
 
+
+
+
 const Cadastro = () => {
 
   const [nome, setNome] = useState("")
