@@ -2,6 +2,8 @@ const express = require('express');
 const app = express()
 const axios = require ('axios')
 app.use(express.json())
+const cors = require('cors');
+app.use(cors());
 
 const escola = {};
 contador = 0;
@@ -39,3 +41,5 @@ app.get('/escola', (req, res) => {
     console.log('Cadastro Escola. Porta 8000');
     
   })
+
+

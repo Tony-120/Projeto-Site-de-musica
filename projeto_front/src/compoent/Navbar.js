@@ -8,14 +8,16 @@ import logoImg from './Imagens/logo.PNG'
 const Navbar = () => {
   const [Mobile, setMobile] = useState(false)
   return (
-    <>
+    // isso  <>  é um fragmento , serve para colocar mais de um conteu sem ter que usar
+    //div no caso os conteudos são os links
+    <> 
       <nav className='navbar'>
       <img className="Logo" src={logoImg} alt="Logo"/>
             {/* Lista da Navbar la em cima */}
         <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
           <Link to='/' className='home'>
             <li>Home</li>
-            
+
           </Link>
           <Link to='/CadastroEscola' className='CadastroEscola'>
             <li>Escola</li>

@@ -1,117 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap');
-.home_container{
-    display: flex;
-    flex-direction: column;
-    padding: 2em;
-
-}
-.home_container h1{
-    text-align: left;
-    font-weight: bold;
-    font-size: 65px;
-    display: flex;
-    margin-bottom: 20px;
-    width: 1500;
-    height: 45px;
-    
-}
-.aula{
-    width: 400px;
-    margin-top: 20px;
-    margin-left: 95px;
-}
-
-
-.icone{
-    width: 250px;
-    margin-top: 20px;
-    margin-left: 95px;
-    background-image: left;
-}
-#icone{
-    width: 750px;
-    margin-top: 380px;
-}
-#Aula{
-  width: 800px;
-
-}
 
 .texto{
-
     font-size: 85px;
     display: flex;
-    margin-bottom: 24px;
-    width: 1500;
-    height: 45px;
-    margin-top: 200px;
-    margin-left: 100px;
-}
-
-.corpo{
-    height: 500px;
-}
-
-
-.cantodireito{
-    display: flex;
-    margin: 0%;
-    width: 15%;
-    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
     
 }
 
-.canto{
-    width: 40%;
-    text-align: right;
+.btn-center {
+    position: relative;
+    
+    
+  }
+  .icon{
+    margin-left: 10%;
+  }
+
+@media (max-width: 1419px) {
+  #notamusica {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
-
-h1{
-    margin-top: 100px;
-    font-size: 70px;
-    margin-left: 100px;
-    margin-bottom: 5px;
-}
-
-#LeiaMais{
-    font-size: 20px;
-    border-style: solid;
-    border-radius: 60px 60px;
-    width: 200px;
-    height: 50px;
-    margin-left: 200px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    line-height: 50px;
-}
-
-#conteudo{
-    position: absolute;
-}
-
-#piano{
-    width: 750px;
-    position: absolute;
-    margin-left: 45%;
-}
-
-#musica{
-    position: absolute;
-    margin-top: 25%;
-    margin-left: -10%;
-}
-
-#acessorios1{
-    position: absolute;
-    margin-top: 41%;
-    margin-left: 70%;
-}
-
-#acessorios2{
-    position: absolute;
-    margin-top: 5%;
-    margin-left: 98%;
-}
-
-

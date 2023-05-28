@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -30,6 +30,7 @@ li {
   max-height:75%;
   height: 100px;
   align-items: top;
+  margin-left: 01%;
   
 }
 .nav-links {

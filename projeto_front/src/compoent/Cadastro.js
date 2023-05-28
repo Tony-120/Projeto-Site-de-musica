@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Cadastro.css"
+import "./Cadastro.css";
+import Copyright from "./Copyright"
 
 
 
@@ -49,11 +50,12 @@ const Cadastro = () => {
                 <div class="card-body p-md-5 mx-md-4">
 
                   <div class="text-center">
-                    
-                    <h2 class="mt-1 mb-5 pb-1">Crie sua conta</h2><hr></hr>
+                    <h2 class="mt-1 mb-5 pb-1">Crie sua conta</h2>
+                    <hr></hr>
                     <h5 class="label-subtitulo">Já possui cadastro?</h5>                   
-                    <a href="/"class="link-login">Login</a>
-                  </div><br></br>
+                    <a href="/login"class="link-login">Login</a>
+                  </div>
+                  <br></br>
                   <form>
 
                   <div class="form-row">
@@ -137,13 +139,14 @@ const Cadastro = () => {
                     </div>  
                   </div>
                   <div class="text-center">
-                  <button type="submit" class="btn btn-dark col-md-6" onClick={handleSubmit}>Cadastrar</button>
+                  <button type="submit" class="btn btn-dark col-md-6 " onClick={handleSubmit}>Cadastrar</button>
                   </div>
                 </form>
                 </div>
               </div>
             </div>
           </div>
+          <Copyright />
         </div>
       </form>
     </>

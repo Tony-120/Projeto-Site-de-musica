@@ -1,6 +1,7 @@
 import React,{useState} from "react"
 import "./Login.css";
 import axios from 'axios';
+import Copyright from "./Copyright"
 
 const Login= () => {
 
@@ -89,6 +90,7 @@ const Login= () => {
           </div>
         </div>
       </div>
+      <Copyright />
     </div>
     </form>     
     </>
