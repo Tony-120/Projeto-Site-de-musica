@@ -12,10 +12,7 @@ const Sobre = () => {
         Bem-vindo ao Projeto SONGG, uma plataforma inovadora de cadastro de escolas de música. Nosso objetivo é conectar escolas de música de alta qualidade com alunos apaixonados pela arte da música.
       </p>
       <p>
-        O Projeto SONGG foi desenvolvido para simplificar o processo de busca e cadastro de escolas de música. Escolas interessadas em oferecer seus serviços podem se cadastrar facilmente em nossa plataforma, fornecendo informações detalhadas sobre suas especialidades, professores qualificados e instalações modernas.
-      </p>
-      <p>
-        Além disso, os alunos têm a oportunidade de se cadastrar no Projeto SONGG, criando um perfil personalizado que reflete seus interesses musicais, nível de habilidade e localização geográfica. Com base nessas informações, nossa plataforma oferece uma função de busca que permite aos alunos encontrar as escolas mais próximas de sua região.
+        O Projeto SONGG foi desenvolvido para simplificar o processo de busca e cadastro de escolas de música. Escolas interessadas em oferecer seus serviços podem se cadastrar facilmente em nossa plataforma, fornecendo informações detalhadas sobre suas especialidades, professores qualificados e instalações modernas.         Além disso, os alunos têm a oportunidade de se cadastrar no Projeto SONGG, criando um perfil personalizado que reflete seus interesses musicais, nível de habilidade e localização geográfica. Com base nessas informações, nossa plataforma oferece uma função de busca que permite aos alunos encontrar as escolas mais próximas de sua região.
       </p>
       <p>
         Uma das principais características do Projeto SONGG é a exibição das escolas em um mapa interativo. Ao realizar uma busca, os alunos podem visualizar as escolas em um mapa e obter informações relevantes sobre cada uma delas. Essa funcionalidade torna o processo de escolha mais intuitivo e ajuda os alunos a tomar decisões informadas sobre onde buscar educação musical.
