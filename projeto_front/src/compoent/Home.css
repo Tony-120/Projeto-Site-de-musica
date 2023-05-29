@@ -3,19 +3,24 @@
 .texto{
     font-size: 85px;
     display: flex;
-    margin-left: 200px;
+    align-items: center;
+    justify-content: center;
     
 }
 
-.nota{
-    height: ;
+.btn-center {
+    position: relative;
+    
+    
+  }
+  .icon{
+    margin-left: 10%;
+  }
+
+@media (max-width: 1419px) {
+  #notamusica {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
-
-
-
-
-
-
-
-
-

@@ -6,29 +6,51 @@ const Login= () => {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [loginValido, setLoginValido] = useState(false);
+  const [loginValido, setLoginValido] = useState(true);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/aluno', {
-          email: email,
-          senha: senha
-      });
+      const response = await axios.get('http://localhost:5000/aluno');
+      const { data } = response;
+      const dadosString = JSON.stringify(data);
+
+      // Verificando quantidade de dados 
+      const wordToSearch = "email";
+      let count = 0;
+      let startIndex = 0;
+
+      while (true) {
+        const index = dadosString.indexOf(wordToSearch, startIndex);
+        if (index === -1) {
+          break;
+        }
+        count++;
+        startIndex = index + wordToSearch.length;
+      }
 
       // Verificando se o aluno existe
+      
       if (response.status === 200) {
-        console.log(response);
-        console.log('Aluno encontrado');
-        window.location.href = '/home';
-        setLoginValido(true);
+        for (let i = 1; i <= count; i++) {
+          const senhaUsuario = dadosString.split('senha":"')[i].split('","data')[0];
+          const emailUsuario = dadosString.split('email":"')[i].split('","senha')[0];
 
-      } else {
-        console.log('Credenciais inválidas');
-        setLoginValido(false);
-        console.log(response);
+          if (emailUsuario === email && senhaUsuario === senha) {            
+            setLoginValido(true);          
+            window.location.href = '/Consulta';
+            break;                                    
+          }
+          else {
+            setLoginValido(false);
+          }    
+        }       
       }
+      if (!loginValido) {
+        console.log('Credenciais inválidas');
+      }
+          
     } catch (error) {
       // Lidar com erros
       console.error('Ocorreu um erro:', error);
@@ -51,20 +73,23 @@ const Login= () => {
                   </div>
                   <form>                    
                     <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example11">E-mail</label>
-                      <input type="email" value={email} onChange={e => setEmail(e.target.value)} id="form2Example11" class="form-control"
-                        placeholder="E-mail" required/>                      
+                    <label class="form-label" for="formemail">E-mail</label>
+                      <input type="email" value={email} onChange={e => setEmail(e.target.value)} id="formemail" class="form-control"
+                        placeholder="E-mail" required="required"/>                      
                     </div>  
 
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example22">Senha</label>
-                      <input type="password" value={senha} onChange={e => setSenha(e.target.value)} id="form2Example22" class="form-control" placeholder="Senha"/>                      
+                      <label class="form-label" for="formsenha">Senha</label>
+                      <input type="password" value={senha} onChange={e => setSenha(e.target.value)} id="formsenha" class="form-control" placeholder="Senha"/>                      
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
                       <button type ="submit" onClick={handleSubmit} class="btn btn-dark btn-block fa-lg  mb-4">Entrar</button>
-                      {loginValido && <p>Credenciais válidas. Acesso concedido!</p>}
-                      {!loginValido && <p>Credenciais inválidas. Acesso negado!</p>}
+
+                      {!loginValido && <div class="alert alert-danger" role="alert">
+                      Credenciais inválidas. Acesso negado!
+                      </div>}               
+
                       <br></br>
                       <a class="text-muted" href="/RecuperarSenha">Esqueceu a senha?</a>
                     </div>

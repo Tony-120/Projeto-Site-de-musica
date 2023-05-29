@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+ import React, { useState } from "react"
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Copyright from "./Copyright";
 
 
 const Cadastro_Escola = () => {
@@ -11,19 +12,39 @@ const Cadastro_Escola = () => {
   const [telefone, setTelefone] = useState("")
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
+  const [cadastroValido, setcadastroValido] = useState(false);
+  const [infValidas, setinfValidas] = useState(true);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:8000/escola', {
+    if (
+      razaosocial === "" || 
+      cnpj === "" ||
+      endereco === "" ||
+      cep === "" ||
+      telefone === "" ||
+      email === "" ||
+      senha === "" ){
 
-      cnpj, razaosocial, endereco, cep, telefone, email,
-    })
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+        setinfValidas(false);
+
+      }
+    else {
+      setinfValidas(true);
+      axios.post('http://localhost:8000/escola', {
+
+        cnpj, razaosocial, endereco, cep, telefone, email,
+      })
+      .then(response => {
+        console.log(response);
+        setcadastroValido(true);
+        window.location.href = '/login';
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
 
   }
   return (
@@ -120,13 +141,20 @@ const Cadastro_Escola = () => {
                     </div>  
                   </div>
                   <div class="text-center">
-                  <button type="submit" class="btn btn-dark col-md-6 " onClick={handleSubmit}>Cadastrar</button>
+                  <button type="submit" class="btn btn-dark col-md-6 " onClick={handleSubmit}>Cadastrar</button>                  
+                  {cadastroValido && <div class="alert alert-success mt-4" role="alert">
+                    Cadastrado com Sucesso!
+                  </div>}          
+                  {!infValidas && <div class="alert alert-danger mt-4" role="alert">
+                    Preencha todas as Informações!
+                  </div>} 
                   </div>
                 </form>
                 </div>
               </div>
             </div>
           </div>
+          <Copyright />
         </div>
       </form>
     </>
