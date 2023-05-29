@@ -10,8 +10,54 @@ const Consulta = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyB80C0rARCy3bPe_rtfWx_4syxUsB-7Nm4",
+    googleMapsApiKey: "AIzaSyCK443NEI7jGaaAyLwQ5L_rAO6mHgGdHWk", // Substitua pelo seu próprio API key
   });
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/escola");
+      const data = await response.json();
+
+      const promises = data.map(async (escola) => {
+        const { endereco } = escola;
+        const geoData = await getGeocodeData(endereco); // Obtém as coordenadas a partir do endereço
+
+        return {
+          ...escola,
+          latitude: geoData.latitude,
+          longitude: geoData.longitude,
+        };
+      });
+
+      const escolasComCoordenadas = await Promise.all(promises);
+      setEscolas(escolasComCoordenadas);
+    } catch (error) {
+      console.error("Erro ao buscar as escolas:", error);
+    }
+  };
+
+  const getGeocodeData = async (address) => {
+    const response = await fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+        address
+      )}&key=AIzaSyCK443NEI7jGaaAyLwQ5L_rAO6mHgGdHWk` // Substitua pelo seu próprio API key
+    );
+    const data = await response.json();
+
+    if (data.results.length > 0) {
+      const { lat, lng } = data.results[0].geometry.location;
+      return {
+        latitude: lat,
+        longitude: lng,
+      };
+    } else {
+      throw new Error("Falha ao obter coordenadas para o endereço: " + address);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const handleUseLocation = (position) => {
@@ -101,29 +147,25 @@ const Consulta = () => {
             <EscolaList escolas={escolas} userLocation={currentLocation} />
           </div>
         </div>
-    
+      
         <div className="col-md-6">
           <div className="map">
             {isLoaded ? (
               <GoogleMap
-                mapContainerStyle={{ width: "100%", height: "640px" }}
-                center={center}
-                zoom={15}
-              >
-                {currentLocation && (
+              mapContainerStyle={{ width: "100%", height: "640px" }}
+              center={center}
+              zoom={15}
+            >
+              
+            
+              {escolas.map((escola, index) => {
+                if (isNaN(escola.latitude) || isNaN(escola.longitude)) {
+                  return null; // Pula esta iteração se as coordenadas não forem válidas
+                }
+            
+                return (
                   <Marker
-                    position={currentLocation}
-                    options={{
-                      icon: {
-                        url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                      },
-                    }}
-                  />
-                )}
-
-                {escolas.map((escola) => (
-                  <Marker
-                    key={escola.contador}
+                    key={index}
                     position={{
                       lat: parseFloat(escola.latitude),
                       lng: parseFloat(escola.longitude),
@@ -135,8 +177,10 @@ const Consulta = () => {
                       },
                     }}
                   />
-                ))}
-              </GoogleMap>
+                );
+              })}
+            </GoogleMap>
+            
             ) : (
               <></>
             )}

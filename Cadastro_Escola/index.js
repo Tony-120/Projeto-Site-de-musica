@@ -17,7 +17,7 @@ app.get('/escola', (req, res) => {
 app.post('/escola', async (req, res) => {
   const { cnpj, razaosocial, endereco, cep, telefone, email } = req.body;
   const escola = {
-    contador, cnpj, razaosocial, endereco, cep, telefone, email,
+    contador, cnpj, razaosocial, endereco, cep, telefone, email,latitude:null,longitude:null
   };
 
   await axios.post('http://localhost:10000/eventos', {
