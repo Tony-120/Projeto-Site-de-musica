@@ -69,7 +69,8 @@ const Login= () => {
 
                   <div class="text-center">
                     
-                    <h4 class="mt-1 mb-5 pb-1">Entre com sua conta</h4><hr></hr><br></br>
+                    <h4 class="mt-1 mb-5 pb-1">Entre com sua conta Aluno</h4><hr></hr><br></br>
+                    
                   </div>
                   <form>                    
                     <div class="form-outline mb-4">
